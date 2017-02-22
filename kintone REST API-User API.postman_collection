@@ -1,0 +1,1920 @@
+{
+	"variables": [],
+	"info": {
+		"name": "kintone REST API/User API",
+		"_postman_id": "55efa1d2-6be4-6845-ad5e-9cef0384158a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "レコードの取得（1件）GET/record.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record.json?app=50&id=1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの一括取得（クエリで条件を指定）GET/records.json",
+			"request": {
+				"url": "https://{domain}/k/v1/records.json?app=973",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 973,\n    \"id\": 1,\n    \"record\": {\n      \"table\": {\n            \"value\": [\n                {\n                    \"value\": {\n                        \"attach\": {\n                            \"type\": \"FILE\",\n                            \"value\": [{\"fileKey\":\"15634f7f-4cbc-4e39-8a81-e1dbbf8134ec\"}]\n                        },\n                        \"digest\": {\n                            \"type\": \"MULTI_LINE_TEXT\",\n                            \"value\": \"アイコン\"\n                        },\n                        \"date\": {\n                            \"type\": \"DATE\",\n                            \"value\": \"2014-12-07\"\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの登録（1件）POST/record.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 50,\n  \"record\": {\n    \n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの登録（1件）POST/record.json w/ subtable",
+			"request": {
+				"url": "https://{domain}/k/v1/record.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 973,\n  \"record\": {\n    \"table\": {\n      \"value\": [\n        {\n          \"value\": {\n            \"attach\": {\n              \"type\": \"FILE\",\n              \"value\": [\n                {\n                  \"fileKey\": \"15634f7f-4cbc-4e39-8a81-e1dbbf8134ec\"\n                }\n              ]\n            },\n            \"digest\": {\n              \"type\": \"MULTI_LINE_TEXT\",\n              \"value\": \"アイコン\"\n            },\n            \"date\": {\n              \"type\": \"DATE\",\n              \"value\": \"2014-12-07\"\n            }\n          }\n        }\n      ]\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの一括登録　POST/records.json",
+			"request": {
+				"url": "https://{domain}/k/v1/records.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 50,\n  \"records\": [\n    {\n    },\n    {\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの更新（1件）PUT/record.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 50,\n  \"id\": 1,\n  \"record\": {\n    \n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの更新（1件）PUT/record.json w/ subtable",
+			"request": {
+				"url": "https://{domain}/k/v1/record.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 973,\n  \"id\": 1,\n  \"record\": {\n    \"table\": {\n      \"value\": [\n        {\n          \"value\": {\n            \"attach\": {\n              \"type\": \"FILE\",\n              \"value\": [\n                {\n                  \"fileKey\": \"15634f7f-4cbc-4e39-8a81-e1dbbf8134ec\"\n                }\n              ]\n            },\n            \"digest\": {\n              \"type\": \"MULTI_LINE_TEXT\",\n              \"value\": \"アイコン\"\n            },\n            \"date\": {\n              \"type\": \"DATE\",\n              \"value\": \"2014-12-07\"\n            }\n          }\n        }\n      ]\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの一括更新　PUT/records.json",
+			"request": {
+				"url": "https://{domain}/k/v1/records.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 50,\n  \"records\": [\n    {\n      \"id\": 1,\n      \"record\": {\n        \n      }\n    },\n    {\n      \"id\": 3,\n      \"record\": {\n        \n      }\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの一括削除　DELETE/records.json",
+			"request": {
+				"url": "https://{domain}/k/v1/records.json",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 50,\n  \"ids\": [\n    5,\n    4\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードの作業者の更新　PUT/record/assignees.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/assignees.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 1,\n    \"id\": 1,\n    \"assignees\": [\"user2\"],\n    \"revision\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードのステータス更新（1件）PUT/record/status.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/status.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 4,\n  \"id\": 1,\n  \"action\": \"申請する\",\n  \"assignee\": \"user2\",\n  \"revision\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "複数レコードのステータス一括更新　PUT/records/status.json",
+			"request": {
+				"url": "https://{domain}/k/v1/records/status.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 4,\n  \"records\": [\n    {\n      \"id\": 1,\n      \"action\": \"申請する\",\n      \"assignee\": \"user2\",\n      \"revision\": 1\n    },\n    {\n      \"id\": 2,\n      \"action\": \"承認\"\n    },\n    {\n      \"id\": 3,\n      \"action\": \"却下\",\n      \"revision\": 5\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードコメントの一括取得　GET/record/comments.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/comments.json?app=247&record=1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 973,\n    \"id\": 1,\n    \"record\": {\n      \"table\": {\n            \"value\": [\n                {\n                    \"value\": {\n                        \"attach\": {\n                            \"type\": \"FILE\",\n                            \"value\": [{\"fileKey\":\"15634f7f-4cbc-4e39-8a81-e1dbbf8134ec\"}]\n                        },\n                        \"digest\": {\n                            \"type\": \"MULTI_LINE_TEXT\",\n                            \"value\": \"アイコン\"\n                        },\n                        \"date\": {\n                            \"type\": \"DATE\",\n                            \"value\": \"2014-12-07\"\n                        }\n                    }\n                }\n            ]\n        }\n    }\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードコメントの投稿　POST/record/comment.json",
+			"request": {
+				"url": "https://{domain}//k/v1/record/comment.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 247,\n    \"record\": 1,\n    \"comment\": {\n        \"text\": \"システムからのコメントです。\\nご確認をお願いします。\",\n        \"mentions\": [\n            {\n                \"code\": \"r-yamashita\",\n                \"type\": \"USER\"\n            },\n            {\n                \"code\": \"joyzo\",\n                \"type\": \"ORGANIZATION\"\n            },\n            {\n                \"code\": \"system39\",\n                \"type\": \"GROUP\"\n            }\n        ]\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードコメントの削除　DELETE/record/comment.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/comment.json",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 247,\n  \"record\": 1,\n  \"comment\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ファイルのアップロード　POST/file.json",
+			"request": {
+				"url": "https://{domain}/k/v1/file.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ファイルダウンロード　GET/file.json",
+			"request": {
+				"url": "https://{domain}/k/v1/file.json?fileKey=20140430062127E21AEA7B82C5464F8F82466279BF710A140",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "NVZg0QxwpJIcLXvvZglsN5yuZ6LpOd45",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "pnnPjcz6UBlylhoZuB7pUdpH74XVHbwEq2FH4os3NZWbuScQ8WNAmBXI3wLD3RNO",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "topic.post",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "複数アプリへのレコード一括処理　POST/bulkRequest.json",
+			"request": {
+				"url": "https://{domain}/k/v1/bulkRequest.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"requests\": [\n    {\n      \"method\": \"POST\",\n      \"api\": \"/k/v1/record.json\",\n      \"payload\": {\n        \"app\": 1972,\n        \"record\": {\n          \"文字列__1行\": {\n            \"value\": \"文字列__1行を追加します。\"\n          }\n        }\n      }\n    },\n    {\n      \"method\": \"PUT\",\n      \"api\": \"/k/v1/record.json\",\n      \"payload\": {\n        \"app\": 1973,\n        \"id\": 33,\n        \"revision\": 2,\n        \"record\": {\n          \"文字列__1行\": {\n            \"value\": \"文字列__1行を更新します。\"\n          }\n        }\n      }\n    },\n    {\n      \"method\": \"DELETE\",\n      \"api\": \"/k/v1/records.json\",\n      \"payload\": {\n        \"app\": 1974,\n        \"ids\": [\n          10,\n          11\n        ],\n        \"revisions\": [\n          1,\n          1\n        ]\n      }\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリ作成　POST/preview/app.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"案件管理\",\n  \"space\": 7,\n  \"thread\": 13\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリの設定の運用環境への反映　POST/preview/app/deploy.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/deploy.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 8,\n            \"revision\": 13\n        },\n        {\n            \"app\": 9,\n            \"revision\": 5\n        },\n        {\n            \"app\": 10,\n            \"revision\": 11,\n            \"revert\": true\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "設定の反映状況確認　GET/preview/app/deploy.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/deploy.json?apps[0]=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 18,\n            \"revision\": 2\n        }\n      \n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "一般設定の取得　GET/app/settings.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/settings.json?app=5&lang=ja",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 4,\n  \"records\": [\n    {\n      \"id\": 1,\n      \"action\": \"申請する\",\n      \"assignee\": \"user2\",\n      \"revision\": 1\n    },\n    {\n      \"id\": 2,\n      \"action\": \"承認\"\n    },\n    {\n      \"id\": 3,\n      \"action\": \"却下\",\n      \"revision\": 5\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "一般設定の変更　PUT/preview/app/settings.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/settings.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 21,\n  \"name\": \"案件管理\",\n  \"description\": \"案件の管理に使用するアプリです。\",\n  \"icon\": {\n    \"type\": \"PRESET\",\n    \"key\": \"APP72\"\n  },\n  \"theme\": \"WHITE\",\n  \"revision\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドの一覧取得（テスト環境）　GET/preview/app/form/fields.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/fields.json?app=15&lang=ja",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 18,\n            \"revision\": 2\n        }\n      \n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドの一覧取得　GET/app/form/fields.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/form/fields.json?app=15&lang=ja",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 18,\n            \"revision\": 2\n        }\n      \n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドを追加　POST/preview/app/form/fields.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/fields.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 19,\n  \"revision\": 2,\n  \"properties\": {\n    \"文字列__1行_\": {\n      \"code\": \"文字列__1行_\",\n      \"defaultValue\": \"\",\n      \"expression\": \"\",\n      \"hideExpression\": false,\n      \"maxLength\": 64,\n      \"minLength\": 0,\n      \"label\": \"文字列 (1行)\",\n      \"noLabel\": false,\n      \"required\": true,\n      \"type\": \"SINGLE_LINE_TEXT\",\n      \"unique\": true\n    },\n    \"数値\": {\n      \"code\": \"数値\",\n      \"defaultValue\": \"12345\",\n      \"digit\": true,\n      \"displayScale\": \"\",\n      \"expression\": \"\",\n      \"maxValue\": 64,\n      \"minValue\": 0,\n      \"label\": \"数値\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"NUMBER\",\n      \"unique\": false,\n      \"unit\": \"$\",\n      \"unitPosition\": \"BEFORE\"\n    },\n    \"ラジオボタン\": {\n      \"code\": \"ラジオボタン\",\n      \"defaultValue\": \"sample2\",\n      \"label\": \"ラジオボタン\",\n      \"noLabel\": false,\n      \"options\": {\n        \"sample1\": {\n          \"label\": \"sample1\",\n          \"index\": 0\n        },\n        \"sample2\": {\n          \"label\": \"sample2\",\n          \"index\": 1\n        },\n        \"sample3\": {\n          \"label\": \"sample3\",\n          \"index\": 2\n        }\n      },\n      \"align\": \"horizontal\",\n      \"required\": true,\n      \"type\": \"RADIO_BUTTON\"\n    },\n    \"チェックボックス\": {\n      \"code\": \"チェックボックス\",\n      \"defaultValue\": [\n        \"sample1\",\n        \"sample3\"\n      ],\n      \"label\": \"チェックボックス\",\n      \"noLabel\": false,\n      \"options\": {\n        \"sample1\": {\n          \"label\": \"sample1\",\n          \"index\": 0\n        },\n        \"sample2\": {\n          \"label\": \"sample2\",\n          \"index\": 2\n        },\n        \"sample3\": {\n          \"label\": \"sample3\",\n          \"index\": 1\n        }\n      },\n      \"align\": \"horizontal\",\n      \"required\": false,\n      \"type\": \"CHECK_BOX\"\n    },\n    \"日付\": {\n      \"code\": \"日付\",\n      \"defaultNowValue\": true,\n      \"defaultValue\": \"\",\n      \"label\": \"日付\",\n      \"noLabel\": false,\n      \"required\": false,\n      \"type\": \"DATE\",\n      \"unique\": true\n    },\n    \"日時\": {\n      \"code\": \"日時\",\n      \"defaultNowValue\": false,\n      \"defaultValue\": \"2012-07-19T00:00:00.000Z\",\n      \"label\": \"日時\",\n      \"noLabel\": false,\n      \"required\": false,\n      \"type\": \"DATETIME\",\n      \"unique\": false\n    },\n    \"添付ファイル\": {\n      \"code\": \"添付ファイル\",\n      \"label\": \"添付ファイル\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"FILE\",\n      \"thumbnailSize\": \"150\"\n    },\n    \"リンク\": {\n      \"code\": \"リンク\",\n      \"defaultValue\": \"http://hoge.xxx\",\n      \"maxLength\": 64,\n      \"minLength\": 0,\n      \"label\": \"リンク\",\n      \"noLabel\": true,\n      \"protocol\": \"WEB\",\n      \"required\": false,\n      \"type\": \"LINK\",\n      \"unique\": false\n    },\n    \"ユーザー選択\": {\n      \"code\": \"ユーザー選択\",\n      \"label\": \"ユーザー選択\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"USER_SELECT\",\n      \"entities\": [\n        {\n          \"code\": \"user1\",\n          \"type\": \"USER\"\n        },\n        {\n          \"code\": \"group1\",\n          \"type\": \"GROUP\"\n        }\n      ],\n      \"defaultValue\": [\n        {\n          \"code\": \"user1\",\n          \"type\": \"USER\"\n        },\n        {\n          \"code\": \"group1\",\n          \"type\": \"GROUP\"\n        },\n        {\n          \"code\": \"org1\",\n          \"type\": \"ORGANIZATION\"\n        },\n        {\n          \"code\": \"LOGINUSER()\",\n          \"type\": \"FUNCTION\"\n        }\n      ]\n    },\n    \"関連レコード一覧\": {\n      \"code\": \"関連レコード一覧\",\n      \"label\": \"関連レコード一覧\",\n      \"noLabel\": true,\n      \"referenceTable\": {\n        \"relatedApp\": {\n          \"app\": 3,\n          \"code\": \"参照先アプリ\"\n        },\n        \"condition\": {\n          \"field\": \"このアプリのフィールド\",\n          \"relatedField\": \"参照するアプリのフィールド\"\n        },\n        \"filterCond\": \"数値 > 10 and 数値2 > 20\",\n        \"displayFields\": [\n          \"表示するフィールド1\",\n          \"表示するフィールド2\"\n        ],\n        \"sort\": \"ソートフィールド1 desc, ソートフィールド2 asc\",\n        \"size\": 5\n      },\n      \"type\": \"REFERENCE_TABLE\"\n    },\n    \"ルックアップ\": {\n      \"code\": \"ルックアップ\",\n      \"label\": \"ルックアップ\",\n      \"lookup\": {\n        \"relatedApp\": {\n          \"app\": 100,\n          \"code\": \"コピー元アプリ\"\n        },\n        \"relatedKeyField\": \"コピー元のフィールド\",\n        \"fieldMappings\": [\n          {\n            \"field\": \"コピー先のフィールド\",\n            \"relatedField\": \"コピー元のフィールド\"\n          }\n        ],\n        \"lookupPickerFields\": [\n          \"ルックアップ選択時に表示されるフィールド1\"\n        ],\n        \"filterCond\": \"数値 > 10 and 数値2 > 20\",\n        \"sort\": \"ソートフィールド1 desc, ソートフィールド2 asc\"\n      },\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"SINGLE_LINE_TEXT\"\n    },\n    \"グループ\": {\n      \"code\": \"グループ\",\n      \"label\": \"グループ\",\n      \"noLabel\": true,\n      \"type\": \"GROUP\",\n      \"openGroup\": true\n    },\n    \"サブテーブル\": {\n      \"code\": \"サブテーブル\",\n      \"type\": \"SUBTABLE\",\n      \"fields\": {\n        \"文字列__1行_サブテーブル\": {\n          \"code\": \"文字列__1行_サブテーブル\",\n          \"defaultValue\": \"\",\n          \"expression\": \"\",\n          \"hideExpression\": false,\n          \"maxLength\": 64,\n          \"minLength\": 0,\n          \"label\": \"文字列 (1行)サブテーブル\",\n          \"noLabel\": false,\n          \"required\": true,\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"unique\": false\n        }\n      }\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドの設定変更　PUT/preview/app/form/fields.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/fields.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"properties\": {\n    \"文字列__1行_\": {\n      \"code\": \"文字列__1行_\",\n      \"defaultValue\": \"\",\n      \"expression\": \"\",\n      \"hideExpression\": false,\n      \"maxLength\": 64,\n      \"minLength\": 0,\n      \"label\": \"文字列 (1行)\",\n      \"noLabel\": false,\n      \"required\": true,\n      \"type\": \"SINGLE_LINE_TEXT\",\n      \"unique\": true\n    },\n    \"数値\": {\n      \"code\": \"数値\",\n      \"defaultValue\": \"12345\",\n      \"digit\": true,\n      \"displayScale\": \"\",\n      \"expression\": \"\",\n      \"maxValue\": 64,\n      \"minValue\": 0,\n      \"label\": \"数値\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"NUMBER\",\n      \"unique\": false,\n      \"unit\": \"$\",\n      \"unitPosition\": \"BEFORE\"\n    },\n    \"ラジオボタン\": {\n      \"code\": \"ラジオボタン\",\n      \"defaultValue\": \"sample2\",\n      \"label\": \"ラジオボタン\",\n      \"noLabel\": false,\n      \"options\": {\n        \"sample1\": {\n          \"label\": \"sample1\",\n          \"index\": 0\n        },\n        \"sample2\": {\n          \"label\": \"sample2\",\n          \"index\": 1\n        },\n        \"sample3\": {\n          \"label\": \"sample3\",\n          \"index\": 2\n        }\n      },\n      \"align\": \"horizontal\",\n      \"required\": true,\n      \"type\": \"RADIO_BUTTON\"\n    },\n    \"チェックボックス\": {\n      \"code\": \"チェックボックス\",\n      \"defaultValue\": [\n        \"sample1\",\n        \"sample3\"\n      ],\n      \"label\": \"チェックボックス\",\n      \"noLabel\": false,\n      \"options\": {\n        \"sample1\": {\n          \"label\": \"sample1\",\n          \"index\": 0\n        },\n        \"sample2\": {\n          \"label\": \"sample2\",\n          \"index\": 2\n        },\n        \"sample3\": {\n          \"label\": \"sample3\",\n          \"index\": 1\n        }\n      },\n      \"align\": \"horizontal\",\n      \"required\": false,\n      \"type\": \"CHECK_BOX\"\n    },\n    \"日付\": {\n      \"code\": \"日付\",\n      \"defaultNowValue\": true,\n      \"defaultValue\": \"\",\n      \"label\": \"日付\",\n      \"noLabel\": false,\n      \"required\": false,\n      \"type\": \"DATE\",\n      \"unique\": true\n    },\n    \"日時\": {\n      \"code\": \"日時\",\n      \"defaultNowValue\": false,\n      \"defaultValue\": \"2012-07-19T00:00:00.000Z\",\n      \"label\": \"日時\",\n      \"noLabel\": false,\n      \"required\": false,\n      \"type\": \"DATETIME\",\n      \"unique\": false\n    },\n    \"添付ファイル\": {\n      \"code\": \"添付ファイル\",\n      \"label\": \"添付ファイル\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"FILE\",\n      \"thumbnailSize\": \"150\"\n    },\n    \"リンク\": {\n      \"code\": \"リンク\",\n      \"defaultValue\": \"http://hoge.xxx\",\n      \"maxLength\": 64,\n      \"minLength\": 0,\n      \"label\": \"リンク\",\n      \"noLabel\": true,\n      \"protocol\": \"WEB\",\n      \"required\": false,\n      \"type\": \"LINK\",\n      \"unique\": false\n    },\n    \"ユーザー選択\": {\n      \"code\": \"ユーザー選択\",\n      \"label\": \"ユーザー選択\",\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"USER_SELECT\",\n      \"entities\": [\n        {\n          \"code\": \"user1\",\n          \"type\": \"USER\"\n        },\n        {\n          \"code\": \"group1\",\n          \"type\": \"GROUP\"\n        }\n      ],\n      \"defaultValue\": [\n        {\n          \"code\": \"user1\",\n          \"type\": \"USER\"\n        },\n        {\n          \"code\": \"group1\",\n          \"type\": \"GROUP\"\n        },\n        {\n          \"code\": \"org1\",\n          \"type\": \"ORGANIZATION\"\n        },\n        {\n          \"code\": \"LOGINUSER()\",\n          \"type\": \"FUNCTION\"\n        }\n      ]\n    },\n    \"関連レコード一覧\": {\n      \"code\": \"関連レコード一覧\",\n      \"label\": \"関連レコード一覧\",\n      \"noLabel\": true,\n      \"referenceTable\": {\n        \"relatedApp\": {\n          \"app\": 3,\n          \"code\": \"参照先アプリ\"\n        },\n        \"condition\": {\n          \"field\": \"このアプリのフィールド\",\n          \"relatedField\": \"参照するアプリのフィールド\"\n        },\n        \"filterCond\": \"数値 > 10 and 数値2 > 20\",\n        \"displayFields\": [\n          \"表示するフィールド1\",\n          \"表示するフィールド2\"\n        ],\n        \"sort\": \"ソートフィールド1 desc, ソートフィールド2 asc\",\n        \"size\": 5\n      },\n      \"type\": \"REFERENCE_TABLE\"\n    },\n    \"ルックアップ\": {\n      \"code\": \"ルックアップ\",\n      \"label\": \"ルックアップ\",\n      \"lookup\": {\n        \"relatedApp\": {\n          \"app\": 100,\n          \"code\": \"コピー元アプリ\"\n        },\n        \"relatedKeyField\": \"コピー元のフィールド\",\n        \"fieldMappings\": [\n          {\n            \"field\": \"コピー先のフィールド\",\n            \"relatedField\": \"コピー元のフィールド\"\n          }\n        ],\n        \"lookupPickerFields\": [\n          \"ルックアップ選択時に表示されるフィールド1\"\n        ],\n        \"filterCond\": \"数値 > 10 and 数値2 > 20\",\n        \"sort\": \"ソートフィールド1 desc, ソートフィールド2 asc\"\n      },\n      \"noLabel\": true,\n      \"required\": false,\n      \"type\": \"SINGLE_LINE_TEXT\"\n    },\n    \"グループ\": {\n      \"code\": \"グループ\",\n      \"label\": \"グループ\",\n      \"noLabel\": true,\n      \"type\": \"GROUP\",\n      \"openGroup\": true\n    },\n    \"サブテーブル\": {\n      \"code\": \"サブテーブル\",\n      \"type\": \"SUBTABLE\",\n      \"fields\": {\n        \"文字列__1行_サブテーブル\": {\n          \"code\": \"文字列__1行_サブテーブル\",\n          \"defaultValue\": \"\",\n          \"expression\": \"\",\n          \"hideExpression\": false,\n          \"maxLength\": 64,\n          \"minLength\": 0,\n          \"label\": \"文字列 (1行)サブテーブル\",\n          \"noLabel\": false,\n          \"required\": true,\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"unique\": false\n        }\n      }\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドの削除　DELETE/preview/app/form/fields.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/fields.json",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 1,\n    \"revision\": 2,\n    \"fields\": [\n        \"文字列__1行_\",\n        \"数値\"\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フォームのレイアウト取得（テスト環境）　GET/app/form/layout.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/layout.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 18,\n            \"revision\": 2\n        }\n      \n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フォームのレイアウト取得　GET/app/form/layout.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/form/layout.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"apps\": [\n        {\n            \"app\": 18,\n            \"revision\": 2\n        }\n      \n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フォームのレイアウト変更　PUT/preview/app/form/layout.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/form/layout.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"layout\": [\n    {\n      \"type\": \"ROW\",\n      \"fields\": [\n        {\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"code\": \"文字列__1行_\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"MULTI_LINE_TEXT\",\n          \"code\": \"文字列__複数行_\",\n          \"size\": {\n            \"width\": 200,\n            \"innerHeight\": 100\n          }\n        },\n        {\n          \"type\": \"LABEL\",\n          \"label\": \"label\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"SPACER\",\n          \"elementId\": \"spacer\",\n          \"size\": {\n            \"width\": 200,\n            \"height\": 100\n          }\n        },\n        {\n          \"type\": \"HR\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"SUBTABLE\",\n      \"code\": \"テーブル\",\n      \"fields\": [\n        {\n          \"type\": \"NUMBER\",\n          \"code\": \"数値\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"GROUP\",\n      \"code\": \"グループ\",\n      \"layout\": [\n        {\n          \"type\": \"ROW\",\n          \"fields\": [\n            {\n              \"type\": \"NUMBER\",\n              \"code\": \"数値2\",\n              \"size\": {\n                \"width\": 200\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "一覧の設定の取得　GET/app/views.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/views.json?app=5&lang=ja",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 21,\n  \"name\": \"案件管理\",\n  \"description\": \"案件の管理に使用するアプリです。\",\n  \"icon\": {\n    \"type\": \"PRESET\",\n    \"key\": \"APP72\"\n  },\n  \"theme\": \"WHITE\",\n  \"revision\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "一覧の設定の変更　PUT/preview/app/views.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/views.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 18,\n  \"views\": {\n    \"一覧1\": {\n      \"type\": \"LIST\",\n      \"name\": \"一覧1\",\n      \"fields\": [\n        \"レコード番号\",\n        \"文字列__1行_\"\n      ],\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 0\n    },\n    \"(作業者が自分)\": {\n      \"index\": 3,\n      \"type\": \"LIST\"\n    },\n    \"カレンダー\": {\n      \"type\": \"CALENDAR\",\n      \"name\": \"カレンダー1\",\n      \"date\": \"作成日時\",\n      \"title\": \"文字列__1行_\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 1\n    },\n    \"カスタマイズ\": {\n      \"type\": \"CUSTOM\",\n      \"html\": \"カスタマイズされた一覧のHTML更新\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 2\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリのアクセス権の取得　GET/app/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/acl.json?app=5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 18,\n  \"views\": {\n    \"一覧1\": {\n      \"type\": \"LIST\",\n      \"name\": \"一覧1\",\n      \"fields\": [\n        \"レコード番号\",\n        \"文字列__1行_\"\n      ],\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 0\n    },\n    \"(作業者が自分)\": {\n      \"index\": 3,\n      \"type\": \"LIST\"\n    },\n    \"カレンダー\": {\n      \"type\": \"CALENDAR\",\n      \"name\": \"カレンダー1\",\n      \"date\": \"作成日時\",\n      \"title\": \"文字列__1行_\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 1\n    },\n    \"カスタマイズ\": {\n      \"type\": \"CUSTOM\",\n      \"html\": \"カスタマイズされた一覧のHTML更新\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 2\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリのアクセス権の更新　PUT/app/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/acl.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 767,\n  \"rights\": [\n    {\n      \"entity\": {\n        \"type\": \"USER\",\n        \"code\": \"25029944\"\n      },\n      \"appEditable\": true,\n      \"recordViewable\": true,\n      \"recordAddable\": true,\n      \"recordEditable\": true,\n      \"recordDeletable\": true,\n      \"recordImportable\": true,\n      \"recordExportable\": true\n    },\n    {\n      \"entity\": {\n        \"type\": \"GROUP\",\n        \"code\": \"社内導入試行_TXGdoY\"\n      },\n      \"appEditable\": false,\n      \"recordViewable\": true,\n      \"recordAddable\": true,\n      \"recordEditable\": true,\n      \"recordDeletable\": false,\n      \"recordImportable\": false,\n      \"recordExportable\": false\n    },\n    {\n      \"entity\": {\n        \"type\": \"ORGANIZATION\",\n        \"code\": \"nishimu.co.jp\"\n      },\n      \"includeSubs\": true,\n      \"appEditable\": false,\n      \"recordViewable\": true,\n      \"recordAddable\": true,\n      \"recordEditable\": true,\n      \"recordDeletable\": true,\n      \"recordImportable\": true,\n      \"recordExportable\": true\n    },\n    {\n      \"entity\": {\n        \"type\": \"CREATOR\"\n      },\n      \"appEditable\": true,\n      \"recordViewable\": true,\n      \"recordAddable\": true,\n      \"recordEditable\": true,\n      \"recordDeletable\": true,\n      \"recordImportable\": true,\n      \"recordExportable\": true\n    },\n    {\n      \"entity\": {\n        \"type\": \"GROUP\",\n        \"code\": \"everyone\"\n      },\n      \"appEditable\": false,\n      \"recordViewable\": true,\n      \"recordAddable\": false,\n      \"recordEditable\": false,\n      \"recordDeletable\": false,\n      \"recordImportable\": false,\n      \"recordExportable\": false\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードのアクセス権の取得　GET/record/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/acl.json?app=5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 18,\n  \"views\": {\n    \"一覧1\": {\n      \"type\": \"LIST\",\n      \"name\": \"一覧1\",\n      \"fields\": [\n        \"レコード番号\",\n        \"文字列__1行_\"\n      ],\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 0\n    },\n    \"(作業者が自分)\": {\n      \"index\": 3,\n      \"type\": \"LIST\"\n    },\n    \"カレンダー\": {\n      \"type\": \"CALENDAR\",\n      \"name\": \"カレンダー1\",\n      \"date\": \"作成日時\",\n      \"title\": \"文字列__1行_\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 1\n    },\n    \"カスタマイズ\": {\n      \"type\": \"CUSTOM\",\n      \"html\": \"カスタマイズされた一覧のHTML更新\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 2\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "レコードのアクセス権の更新　PUT/record/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/record/acl.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 767,\n  \"rights\": [\n    {\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"entities\": [\n        {\n          \"viewable\": true,\n          \"editable\": true,\n          \"deletable\": false,\n          \"entity\": {\n            \"type\": \"ORGANIZATION\",\n            \"code\": \"nishimu.co.jp\"\n          },\n          \"includeSubs\": true\n        },\n        {\n          \"viewable\": true,\n          \"editable\": true,\n          \"deletable\": true,\n          \"entity\": {\n            \"type\": \"FIELD_ENTITY\",\n            \"code\": \"更新者\"\n          }\n        },\n        {\n          \"viewable\": true,\n          \"editable\": false,\n          \"deletable\": false,\n          \"entity\": {\n            \"type\": \"GROUP\",\n            \"code\": \"everyone\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドのアクセス権の取得　GET/field/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/field/acl.json?app=5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 18,\n  \"views\": {\n    \"一覧1\": {\n      \"type\": \"LIST\",\n      \"name\": \"一覧1\",\n      \"fields\": [\n        \"レコード番号\",\n        \"文字列__1行_\"\n      ],\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 0\n    },\n    \"(作業者が自分)\": {\n      \"index\": 3,\n      \"type\": \"LIST\"\n    },\n    \"カレンダー\": {\n      \"type\": \"CALENDAR\",\n      \"name\": \"カレンダー1\",\n      \"date\": \"作成日時\",\n      \"title\": \"文字列__1行_\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 1\n    },\n    \"カスタマイズ\": {\n      \"type\": \"CUSTOM\",\n      \"html\": \"カスタマイズされた一覧のHTML更新\",\n      \"filterCond\": \"更新日時 > \\\"2012-02-03T09:00:00Z\\\" and 更新日時 < \\\"2012-02-03T10:00:00Z\\\"\",\n      \"sort\": \"レコード番号 asc\",\n      \"index\": 2\n    }\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フィールドのアクセス権の更新　PUT/field/acl.json",
+			"request": {
+				"url": "https://{domain}/k/v1/field/acl.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 767,\n  \"rights\": [\n    {\n      \"code\": \"文字列__1行_\",\n      \"entities\": [\n        {\n          \"accessibility\": \"WRITE\",\n          \"entity\": {\n            \"type\": \"USER\",\n            \"code\": \" 25029944\"\n          }\n        },\n        {\n          \"accessibility\": \"NONE\",\n          \"entity\": {\n            \"type\": \"GROUP\",\n            \"code\": \"社内導入試行_TXGdoY\"\n          }\n        }\n      ]\n    },\n    {\n      \"code\": \"数値\",\n      \"entities\": [\n        {\n          \"accessibility\": \"WRITE\",\n          \"entity\": {\n            \"type\": \"ORGANIZATION\",\n            \"code\": \"nishimu.co.jp\"\n          },\n          \"includeSubs\": true\n        },\n        {\n          \"accessibility\": \"READ\",\n          \"entity\": {\n            \"type\": \"GROUP\",\n            \"code\": \"everyone\"\n          }\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "JavaScript / CSSカスタマイズ設定の取得（テスト環境）　PUT/app/customize.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/customize.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"layout\": [\n    {\n      \"type\": \"ROW\",\n      \"fields\": [\n        {\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"code\": \"文字列__1行_\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"MULTI_LINE_TEXT\",\n          \"code\": \"文字列__複数行_\",\n          \"size\": {\n            \"width\": 200,\n            \"innerHeight\": 100\n          }\n        },\n        {\n          \"type\": \"LABEL\",\n          \"label\": \"label\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"SPACER\",\n          \"elementId\": \"spacer\",\n          \"size\": {\n            \"width\": 200,\n            \"height\": 100\n          }\n        },\n        {\n          \"type\": \"HR\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"SUBTABLE\",\n      \"code\": \"テーブル\",\n      \"fields\": [\n        {\n          \"type\": \"NUMBER\",\n          \"code\": \"数値\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"GROUP\",\n      \"code\": \"グループ\",\n      \"layout\": [\n        {\n          \"type\": \"ROW\",\n          \"fields\": [\n            {\n              \"type\": \"NUMBER\",\n              \"code\": \"数値2\",\n              \"size\": {\n                \"width\": 200\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "JavaScript / CSSカスタマイズ設定の取得　PUT/app/customize.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/customize.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"layout\": [\n    {\n      \"type\": \"ROW\",\n      \"fields\": [\n        {\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"code\": \"文字列__1行_\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"MULTI_LINE_TEXT\",\n          \"code\": \"文字列__複数行_\",\n          \"size\": {\n            \"width\": 200,\n            \"innerHeight\": 100\n          }\n        },\n        {\n          \"type\": \"LABEL\",\n          \"label\": \"label\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"SPACER\",\n          \"elementId\": \"spacer\",\n          \"size\": {\n            \"width\": 200,\n            \"height\": 100\n          }\n        },\n        {\n          \"type\": \"HR\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"SUBTABLE\",\n      \"code\": \"テーブル\",\n      \"fields\": [\n        {\n          \"type\": \"NUMBER\",\n          \"code\": \"数値\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"GROUP\",\n      \"code\": \"グループ\",\n      \"layout\": [\n        {\n          \"type\": \"ROW\",\n          \"fields\": [\n            {\n              \"type\": \"NUMBER\",\n              \"code\": \"数値2\",\n              \"size\": {\n                \"width\": 200\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "JavaScript / CSSカスタマイズ設定の変更　PUT/preview/app/customize.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/customize.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 19,\n    \"scope\": \"ALL\",\n    \"desktop\": {\n        \"js\": [\n            {\n                \"type\": \"URL\",\n                \"url\": \"https://www.example.com/example.js\"\n            },\n            {\n                \"type\": \"FILE\",\n                \"file\": {\n                    \"fileKey\": \"ddfc8e89-7aa3-4350-b9ab-3a75c9cf46b3\"\n                }\n            }\n        ],\n        \"css\": []\n    },\n    \"mobile\": {\n        \"js\": [\n            {\n                \"type\": \"FILE\",\n                \"file\": {\n                    \"fileKey\": \"20150519023802B3EB762E870645F889B22F9D4F1F3059023\"\n                }\n            },\n            {\n                \"type\": \"URL\",\n                \"url\": \"https://www.example.com/example-mobile.js\"\n            }\n        ]\n    },\n    \"revision\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリのプロセス管理の設定の取得　GET/app/status.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/status.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"layout\": [\n    {\n      \"type\": \"ROW\",\n      \"fields\": [\n        {\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"code\": \"文字列__1行_\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"MULTI_LINE_TEXT\",\n          \"code\": \"文字列__複数行_\",\n          \"size\": {\n            \"width\": 200,\n            \"innerHeight\": 100\n          }\n        },\n        {\n          \"type\": \"LABEL\",\n          \"label\": \"label\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"SPACER\",\n          \"elementId\": \"spacer\",\n          \"size\": {\n            \"width\": 200,\n            \"height\": 100\n          }\n        },\n        {\n          \"type\": \"HR\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"SUBTABLE\",\n      \"code\": \"テーブル\",\n      \"fields\": [\n        {\n          \"type\": \"NUMBER\",\n          \"code\": \"数値\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"GROUP\",\n      \"code\": \"グループ\",\n      \"layout\": [\n        {\n          \"type\": \"ROW\",\n          \"fields\": [\n            {\n              \"type\": \"NUMBER\",\n              \"code\": \"数値2\",\n              \"size\": {\n                \"width\": 200\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリのプロセス管理の設定の取得（テスト環境）　GET/preview/app/status.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app/status.json?app=15",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"app\": 1,\n  \"revision\": 2,\n  \"layout\": [\n    {\n      \"type\": \"ROW\",\n      \"fields\": [\n        {\n          \"type\": \"SINGLE_LINE_TEXT\",\n          \"code\": \"文字列__1行_\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"MULTI_LINE_TEXT\",\n          \"code\": \"文字列__複数行_\",\n          \"size\": {\n            \"width\": 200,\n            \"innerHeight\": 100\n          }\n        },\n        {\n          \"type\": \"LABEL\",\n          \"label\": \"label\",\n          \"size\": {\n            \"width\": 200\n          }\n        },\n        {\n          \"type\": \"SPACER\",\n          \"elementId\": \"spacer\",\n          \"size\": {\n            \"width\": 200,\n            \"height\": 100\n          }\n        },\n        {\n          \"type\": \"HR\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"SUBTABLE\",\n      \"code\": \"テーブル\",\n      \"fields\": [\n        {\n          \"type\": \"NUMBER\",\n          \"code\": \"数値\",\n          \"size\": {\n            \"width\": 200\n          }\n        }\n      ]\n    },\n    {\n      \"type\": \"GROUP\",\n      \"code\": \"グループ\",\n      \"layout\": [\n        {\n          \"type\": \"ROW\",\n          \"fields\": [\n            {\n              \"type\": \"NUMBER\",\n              \"code\": \"数値2\",\n              \"size\": {\n                \"width\": 200\n              }\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリのプロセス管理の設定の変更　PUT/preview/app/status.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/app/status.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": \"5\",\n    \"enable\": true,\n    \"states\": {\n        \"未処理\": {\n            \"name\": \"未処理\",\n            \"index\": \"0\",\n            \"assignee\": {\n                \"type\": \"ONE\",\n                \"entities\": [\n                ]\n            }\n        },\n        \"処理中\": {\n            \"name\": \"処理中\",\n            \"index\": \"1\",\n            \"assignee\": {\n                \"type\": \"ALL\",\n                \"entities\": [\n                    {\n                        \"entity\": {\n                            \"type\": \"USER\",\n                            \"code\": \"user1\"\n                        },\n                        \"includeSubs\": false\n                    },\n                    {\n                        \"entity\": {\n                            \"type\": \"FIELD_ENTITY\",\n                            \"code\": \"creator\"\n                        },\n                        \"includeSubs\": false\n                    },\n                    {\n                        \"entity\": {\n                            \"type\": \"CUSTOM_FIELD\",\n                            \"code\": \"上司\"\n                        },\n                        \"includeSubs\": false\n                    }\n                ]\n            }\n        },\n        \"完了\": {\n            \"name\": \"完了\",\n            \"index\": \"2\",\n            \"assignee\": {\n                \"type\": \"ONE\",\n                \"entities\": [\n                ]\n            }\n        }\n    },\n    \"actions\": [\n        {\n            \"name\": \"処理開始\",\n            \"from\": \"未処理\",\n            \"to\": \"処理中\",\n            \"filterCond\": \"レコード番号 = \\\"1\\\"\"\n        },\n        {\n            \"name\": \"完了する\",\n            \"from\": \"処理中\",\n            \"to\": \"完了\",\n            \"filterCond\": \"\"\n        }\n    ],\n    \"revision\": \"3\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリ情報の取得（1件）GET/app.json",
+			"request": {
+				"url": "https://{domain}/k/v1/app.json?id=747",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 50,\n    \"record\": {\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "アプリ情報の一括取得　GET/apps.json",
+			"request": {
+				"url": "https://{domain}/k/v1/apps.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": 50,\n    \"record\": {\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "開発中アプリのフォーム設計情報取得　GET/preview/form.json",
+			"request": {
+				"url": "https://{domain}/k/v1/preview/form.json?app=518",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "フォーム設計情報取得　GET/form.json",
+			"request": {
+				"url": "https://{domain}/k/v1/form.json?app=518",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app\": \"4\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペース情報の取得　GET/space.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space.json?id=8",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースの本文の更新　PUT/space/body.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space/body.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 33 ,\n  \"body\": \"<b>kintone developer</b>専用のスペースです。\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースの作成　POST/template/space.json",
+			"request": {
+				"url": "https://{domain}/k/v1/template/space.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 1,\n  \"name\": \"サンプルスペース\",\n  \"members\": [\n    {\n      \"entity\": {\n        \"type\": \"USER\",\n        \"code\": \"user1\"\n      },\n      \"isAdmin\": true\n    },\n    {\n      \"entity\": {\n        \"type\": \"GROUP\",\n        \"code\": \"group1\"\n      },\n      \"isAdmin\": false\n    },\n    {\n      \"entity\": {\n        \"type\": \"ORGANIZATION\",\n        \"code\": \"org1\"\n      },\n      \"isAdmin\": false,\n      \"includeSubs\": true\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペース削除　DELETE/space.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space.json",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースのスレッドの更新　PUT/space/thread.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space/thread.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":  41,\n  \"name\": \"総務課連絡スレッド\",\n  \"body\": \"<b>総務課</b>の連絡用スレッドです。\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースのスレッド内コメントの投稿　POST/space/thread/comment.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space/thread/comment.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"space\": 250,\n    \"thread\": 1026,\n    \"comment\": {\n        \"text\": \"本日のオススメ弁当です。\\n弁当注文アプリの登録をお待ちしております。\",\n        \"mentions\": [\n            {\n                \"code\": \"takahashi\",\n                \"type\": \"USER\"\n            },\n            {\n                \"code\": \"営業本部_OZKQWZ\",\n                \"type\": \"ORGANIZATION\"\n            },\n            {\n                \"code\": \"管理部受付_zX6C6r\",\n                \"type\": \"GROUP\"\n            }\n        ],\n        \"files\": [\n            {\n                \"fileKey\": \"c15b3870-7505-4ab6-9d8d-b9bdbc74f5d6\",\n                \"width\": 1000\n            }\n        ]\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースのメンバーの取得　GET/space/members.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space/members.json?id= 33",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "スペースのメンバーの更新　 PUT/space/members.json",
+			"request": {
+				"url": "https://{domain}/k/v1/space/members.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"33\",\n  \"members\": [\n    {\n      \"entity\": {\n        \"type\": \"USER\",\n        \"code\": \"25029944\"\n      },\n      \"isAdmin\": true\n    },\n    {\n      \"entity\": {\n        \"type\": \"GROUP\",\n        \"code\": \"社内導入試行_TXGdoY\"\n      },\n      \"isAdmin\": false\n    },\n    {\n      \"entity\": {\n        \"type\": \"ORGANIZATION\",\n        \"code\": \"nishimu.co.jp\"\n      },\n      \"isAdmin\": false,\n      \"includeSubs\": true\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ゲストユーザーの一括追加　 POST/guests.json",
+			"request": {
+				"url": "https://{domain}/k/v1/guests.json",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"guests\": [\n    {\n      \"code\": \"hoge@example.com\",\n      \"password\": \"p@ssword\",\n      \"timezone\": \"Asia/Tokyo\",\n      \"locale\": \"ja\",\n      \"image\": \"78a586f2-e73e-4a70-bec2-43976a60746e\",\n      \"name\": \"東京 三郎\",\n      \"surNameReading\": \"とうきょう\",\n      \"givenNameReading\": \"さぶろう\",\n      \"company\": \"サイボウズ株式会社\",\n      \"division\": \"営業部\",\n      \"phone\": \"999-456-7890\",\n      \"callto\": \"tokyo3rou\"\n    },\n    {\n      \"code\": \"fuga@example.com\",\n      \"password\": \"p@ssword\",\n      \"timezone\": \"Asia/Tokyo\",\n      \"locale\": \"auto\",\n      \"image\": \"c15b3870-7505-4ab6-9d8d-b9bdbc74f5d6\",\n      \"name\": \"水道橋 二郎\",\n      \"surNameReading\": \"すいどうばし\",\n      \"givenNameReading\": \"じろう\",\n      \"company\": \"サイボウズ株式会社\",\n      \"division\": \"開発部\",\n      \"phone\": \"555-1111-2222\",\n      \"callto\": \"suidobashijiro\"\n    }\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ゲストユーザーの一括削除　  DELETE/guests.json",
+			"request": {
+				"url": "https://{domain}/k/v1/guests.json",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"guests\": [\n    \"guest1@example.com\",\n    \"guest2@example.com\",\n    \"guest3@example.com\"\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ゲストスペースのゲストメンバー更新　 PUT/guest/<ゲストスペースのID>/v1/space/guests.json",
+			"request": {
+				"url": "https://{domain}/k/guest/27/v1/space/guests.json",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": 27,\n  \"guests\": [\n    \"guest1@example.com\",\n    \"guest2@example.com\",\n    \"guest3@example.com\"\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "kintone API 一覧の取得　GET/apis.json",
+			"request": {
+				"url": "https://{domain}/k/v1/apis.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "kintone API スキーマ情報の取得　GET/apis/*.json",
+			"request": {
+				"url": "https://{domain}/k/v1/apis/app/acl/put.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ユーザーエクスポートAPI　GET/users.json",
+			"request": {
+				"url": "https://{domain}/v1/users.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"guests\": [\n    \"guest1@example.com\",\n    \"guest2@example.com\",\n    \"guest3@example.com\"\n  ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "組織エクスポート API　　GET/organizations.json",
+			"request": {
+				"url": "https://{domain}/v1/organizations.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "グループエクスポートAPI　　GET/groups.json",
+			"request": {
+				"url": "https://{domain}/v1/groups.json",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ユーザーの所属組織エクスポート API　GET/user/organizations.json",
+			"request": {
+				"url": "https://{domain}/v1/user/organizations.json?code=r-yamashita",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "ユーザーの所属グループエクスポート API　GET/user/groups.json",
+			"request": {
+				"url": "https://{domain}/v1/user/groups.json?code=r-yamashita",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "組織の所属ユーザーエクスポート API　GET/organization/users.json",
+			"request": {
+				"url": "https://{domain}/v1/organization/users.json?code=joyzo.co.jp",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "グループの所属ユーザーエクスポートAPI　GET/group/users.json",
+			"request": {
+				"url": "https://{domain}/v1/group/users.json?code=everyone",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Cybozu-Authorization",
+						"value": "{authToken}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic {basicToken}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
